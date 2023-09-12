@@ -1,0 +1,43 @@
+<form [formGroup]="userForm" (ngSubmit)="OnSubmit()" style="width: 100%;">
+    <div class="block mb-2">
+        <span class="font-bold block mb-2">Name</span> 
+        <input pInputText id="name" formControlName="name" /> 
+        <div class="text-red"
+        *ngIf="(userForm.controls['name'].touched || isFormSubmitted)&& userForm.controls['name'].errors
+        && userForm.controls['name'].errors['required'] != null">
+        Name is <strong>Required</strong>
+      </div>
+    </div>
+    <div class="block mb-2">
+        <span class="font-bold block mb-2">Email</span> 
+        <input pInputText id="email" formControlName="email" /> 
+        <div class="text-red"
+        *ngIf="(userForm.controls['email'].touched || isFormSubmitted)&& userForm.controls['email'].errors
+        && userForm.controls['email'].errors['required'] != null">
+        Email is <strong>Required</strong>
+      </div>
+    </div>
+    <div class="block mb-2">
+        <span class="font-bold block mb-2">Phone</span> 
+        <input pInputText id="phone" formControlName="phone" /> 
+        <div class="text-red"
+        *ngIf="(userForm.controls['phone'].touched || isFormSubmitted)&& userForm.controls['phone'].errors
+        && userForm.controls['phone'].errors['required'] != null">
+        Phone is <strong>Required</strong>
+      </div>
+    </div>
+    <div class="block mb-2">
+        <span class="font-bold block mb-2">Status</span> 
+        <p-dropdown formControlName="status" [options]="statuses"></p-dropdown>
+        <div class="text-red"
+        *ngIf="(userForm.controls['status'].touched || isFormSubmitted)&& userForm.controls['status'].errors
+        && userForm.controls['status'].errors['required'] != null">
+        Status is <strong>Required</strong>
+      </div>
+    </div>
+
+    <p-button
+        type="submit" 
+        styleClass="p-button-primary"
+      >Submit</p-button>
+</form>
